@@ -10,6 +10,8 @@ The application we intend to build is to showcase all the CRAFT beer locations i
 
 **Anthony Mitchell**: Google Maps API/Beer Mapping API/MongoDB -- provide the API information needed to populate the map with the craft beer locations and all info provide by the Beer Mapping API. Scrapping all the JSON info into a database to be used for React Components.
 
+## Projected Dates for Task Completion
+
 **Thursday 7/5**: Basic landing page with user authentication.
 
 **Friday 7/6**: API information scrapped into MongoDB for use in React components. Styling for landing page. React components built.
