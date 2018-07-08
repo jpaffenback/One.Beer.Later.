@@ -1,0 +1,119 @@
+.nav{
+    height: 100px;
+    background: #800000;
+    color: #fff;
+    width: 100%;
+    padding: 0 20px;
+    border-bottom: 1px solid #eaeaeb;
+    line-height: 70px;
+    box-shadow: 5px 5px 5px grey;  
+    position: fixed;
+    top: 0;
+    left: 0;  
+}
+.nav> .profile{
+    float: right;
+}
+.navigation{
+  width: 70%;
+}
+.navigation img{
+    background-color: #fff;
+}
+.profile {
+    width: 30%;
+}
+.profile p{
+    color: #fff;
+    font-size: 18px;
+}
+.profile img{
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    margin-top: 10px;
+    font-family: "Helvetica neue", sans-serif;
+    text-align: right;
+}
+.menu{
+  
+    margin: 0 30px 0 0;  
+}
+.menu a{
+    direction: none;
+    color: gray;
+    margin: 0 10px;
+    line-height: 30px;
+}
+.menu a img{
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    background: none;
+}
+span{
+    color: #fff;
+}
+span img{
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;    
+}
+
+label{
+    margin: 0 40px 0 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+}
+#toggle{
+    display: none;
+}
+
+
+@media only screen and (max-width:500px){
+    .nav{
+        height: 200px;
+    }
+    label{
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        left: 350px;
+    }
+    .menu{
+        position: relative;
+        top: 60px;
+        left: 50px;
+        text-align: center;
+        width: 70%;
+        display: none;
+    }
+    .menu a{
+        display: block;
+        border-bottom: 1px solid #eaeaeb;
+        margin: 0;
+    }
+    
+    #toggle:checked + .menu{
+        display: block;
+    }
+}
+
+@media only screen and (max-width:375px){
+    label{
+        position: absolute;
+        left: 300px;
+    }
+   
+}
+
+@media only screen and (max-width:320px){
+    label{
+        position: absolute;
+        left: 250px;
+    }
+   
+}
