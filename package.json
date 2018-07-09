@@ -1,0 +1,28 @@
+{
+  "name": "One.Beer.Later.",
+  "version": "1.0.0",
+  "description": "Georgia Tech Coding Bootcamp Final Project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"nodemon server.js\" \" cd ./client && yarn start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpaffenback/One.Beer.Later..git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpaffenback/One.Beer.Later./issues"
+  },
+  "homepage": "https://github.com/jpaffenback/One.Beer.Later.#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.1",
+    "mongoose": "^5.2.1",
+    "nodemon": "^1.17.5"
+  }
+}
