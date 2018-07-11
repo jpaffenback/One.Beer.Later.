@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/One_Beer_letter
 app.use("/api",apiRoutes);
 
 app.get("/", (req, res)=>{
-    res.sendFile(path.join(__dirname, "clent/public/index.html"));
+    res.sendFile(path.join(__dirname, "client/public/index.html"));
 });
 
 
