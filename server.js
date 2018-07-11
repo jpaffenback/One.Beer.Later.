@@ -22,11 +22,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/One_Beer_letter
     console.log("Succesfuly Connected to MongoDB")
 });
 
+app.use("/api",apiRoutes);
+
 app.get("/", (req, res)=>{
-    res.sendFile(__dirname, "clent/public/index.html")
+    res.sendFile(path.join(__dirname, "clent/public/index.html"));
 });
 
-app.use("/api",apiRoutes);
+
 
 
 // PORT Listener
