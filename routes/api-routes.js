@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const db = require("../models");
 const router = express.Router();
 
-router.get("/signup", (req, res)=>{
+router.post("/signup", (req, res)=>{
+    console.log("Sign Up!")
+    console.log(req.body)
  db.Users.create(req.body).then(user=>{
-     console.log(user)
+     res.json(user)
  })
 });
 
