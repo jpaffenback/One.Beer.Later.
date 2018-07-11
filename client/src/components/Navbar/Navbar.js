@@ -6,7 +6,7 @@ const Navbar = (props) => (
     <div className="nav">
         <div className="profile">
             <img src={props.profileImage} alt="profiles"/>
-            <p>{props.dispayName}</p>
+            <p>{props.displayName}</p>
         </div>
        
         <div className="navigation">
