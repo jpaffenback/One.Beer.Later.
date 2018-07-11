@@ -9,6 +9,9 @@ router.post("/signup", (req, res)=>{
  db.Users.create(req.body).then(user=>{
      res.json(user)
  })
+ .catch(function(err) {
+     console.log(err);
+ })
 });
 
 module.exports = router;
