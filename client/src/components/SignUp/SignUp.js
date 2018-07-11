@@ -34,7 +34,7 @@ class SignUp extends Component {
             console.log("Mounted!")
             firebase.auth().onAuthStateChanged(user => {
                 this.setState({ isSignedIn: !!user })
-                // console.log(firebase.auth().currentUser)
+                console.log(firebase.auth().currentUser)
 
 
 
