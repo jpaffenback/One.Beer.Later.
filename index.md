@@ -31,4 +31,16 @@ This is a link to our GitKraken Glo Board Page: https://app.gitkraken.com/glo/bo
 
 https://xd.adobe.com/view/28dddea4-2989-4c9b-482a-ef24dade8e3b-5eec/
 
+## Deliverable 2
+
+## Screenshot of Glo Board as of 7/10
+![board](https://user-images.githubusercontent.com/32781426/42548749-b455e466-8496-11e8-91c7-138fc64eeba7.JPG)
+
+## Screenshot of Landing page of app.
+![landing](https://user-images.githubusercontent.com/32781426/42548774-d068d01e-8496-11e8-8639-8fcda28eabf0.JPG)
+
+## Screenshot of Login page of app.
+![login](https://user-images.githubusercontent.com/32781426/42548782-d4da16a8-8496-11e8-9230-93f4c85efca4.JPG)
+
+
 
