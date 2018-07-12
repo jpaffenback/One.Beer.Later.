@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-express.static("client/build")
+app.use (express.static("client/build"))
 
 //Connection to mongoDB
 const mongoose = require('mongoose');
@@ -24,9 +24,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/One_Beer_letter
 
 app.use("/api",apiRoutes);
 
-// app.get("/", (req, res)=>{
-//     res.sendFile(path.join(__dirname, "client/public/index.html"));
-// });
+app.get("*", (req, res)=>{
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 
 
