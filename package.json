@@ -4,7 +4,8 @@
   "description": "Georgia Tech Coding Bootcamp Final Project",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"nodemon server.js\" \" cd ./client && yarn start\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cd client && yarn install && yarn run build"
   },
   "repository": {
     "type": "git",
