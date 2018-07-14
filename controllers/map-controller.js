@@ -8,8 +8,13 @@ const mapController = {
         console.log(address);
   },
   getLatLng: convert => {
-    return axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAmtC4ucpRMaQhkFX_aavX71aFsUn70qCo")
-    console.log(convert);
+    return axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyBEukmwsUv1F_9RUGjfBDY_xcBLgCdLnag")
+    console.log(getLatLng);
+  },
+  getMarkerData: markers => {
+      const marker = mapController.getLatLng(data).then(locations => {
+          console.log(marker);
+      })
   }
 
 
@@ -36,7 +41,7 @@ const mapController = {
 //     });
 //     return latlng;
 //   }
-// };
 };
+
 
 module.exports = mapController;

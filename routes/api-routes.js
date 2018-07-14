@@ -20,9 +20,9 @@ router.post("/signup", (req, res)=>{
 router.post("/maps", (req, res) => {
   const location = req.body.location;
   maps
-    .getLatLng(location)
+    .getMarkerData(location)
     .then(data => {
-      res.send('serverside',data.data);
+        res.status(status).send(body);
     })
     .catch(err => {
         res.send(err);
