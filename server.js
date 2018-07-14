@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use (express.static("client/build"))
 
 //Connection to mongoDB
 const mongoose = require('mongoose');
@@ -22,11 +22,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/One_Beer_letter
     console.log("Succesfuly Connected to MongoDB")
 });
 
-app.get("/", (req, res)=>{
-    res.sendFile(__dirname, "clent/public/index.html")
+app.use("/api",apiRoutes);
+
+app.get("*", (req, res)=>{
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
-app.use("/api",apiRoutes);
+
 
 
 // PORT Listener
