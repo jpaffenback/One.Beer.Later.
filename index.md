@@ -42,5 +42,20 @@ https://xd.adobe.com/view/28dddea4-2989-4c9b-482a-ef24dade8e3b-5eec/
 ## Screenshot of Login page of app.
 ![login](https://user-images.githubusercontent.com/32781426/42548782-d4da16a8-8496-11e8-9230-93f4c85efca4.JPG)
 
+## Deliverable 3
+
+## Problem faced (resolution)
+*	Deploying to Heroku (created build package in client)
+*	Routes not functioning correctly once deployed (changed “/” to “*”in our server.js along with adjusted routes for our created build package)
+*	Auth not working after deployed. (added domain name (Heroku) to firebase) 
+*	API issues with some latitude and longitude info, error on their server/side (work around is to use google geocoding API to get what we need which should cut out all of the “junk” data)
+
+## Contributions to date
+Anthony – Working on Google Maps and Beer mapping APIs and associated issues, creating code for relevant calls to APIs and scrapping all JSON info for database, created Glo Board using Gitkraken, created initial markdown file (index.md) for deliverable 1.
+Taylor – Set up authentication and created react app along with associated routes, created firebase app to handle authentication and started MongoDB database to store relevant data.
+Jason – created styling (CSS) and format of landing and login page. Created wireframe (Adobe XD), published to Heroku and debugged all issues associated with deployment, updated markdown file for deliverable 2 and 3. Managing version control via Git. Updating Glo boards and updating status as needed. 
+
+## Remaining efforts/Stretch goals
+Create social media functionality allowing users to connect with their friends, add comments to locations, establish meetups at certain locations and general chat features. We would also like to add an Uber interface to allow users to quickly and easily locate a safe ride.  
 
 
