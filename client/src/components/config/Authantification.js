@@ -1,4 +1,6 @@
 
+import firebase from 'firebase/app';
+
 const config = {
     apiKey: "AIzaSyC0KB3mqW_m0SOiHq851KIW2016BvP9whE",
     authDomain: "one-beer-letter.firebaseapp.com",
@@ -7,4 +9,7 @@ const config = {
     storageBucket: "one-beer-letter.appspot.com",
     messagingSenderId: "792969655456"
   };
-  export default config
+
+  const initialized = firebase.initializeApp(config);
+
+  export default initialized;
