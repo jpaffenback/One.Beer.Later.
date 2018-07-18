@@ -28,8 +28,9 @@ class Navbar extends Component {
   };
 
   componentDidMount = () => {
+
    this.updateState();
-    const value = localStorage.getItem("userProfile");
+    const value = localStorage.getItem("currentUser");
 
     const retrievedUserProfile = JSON.parse(value);
 

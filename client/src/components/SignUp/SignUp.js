@@ -45,8 +45,8 @@ class SignUp extends Component {
                 //   console.log(NewUser)
                   
                   if(this.state.isSignedIn === true){
-                  localStorage.setItem("userProfile", JSON.stringify(NewUser))
-                //   const value = localStorage.getItem("userProfile");
+                  localStorage.setItem("currentUser", JSON.stringify(NewUser))
+                //   const value = localStorage.getItem("currentUser");
                 //   const retrievedUserProfile =JSON.parse(value);
                 //   this.setState({
                 //     username: retrievedUserProfile.name,

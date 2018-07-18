@@ -7,14 +7,14 @@ import initialized from "../config/Authantification";
 class MapLayout extends Component{
   constructor(props){
     super(props)
-    // const value = localStorage.getItem("userProfile");
-    // const retrievedUserProfile =JSON.parse(value);
-    // this.state={
-    //   name:retrievedUserProfile.name,
-    //   email:retrievedUserProfile.email,
-    //   photo:retrievedUserProfile.image,
-    //   userId:retrievedUserProfile.userId
-    // }
+    const value = localStorage.getItem("currentUser");
+    const retrievedUserProfile =JSON.parse(value);
+    this.state={
+      name:retrievedUserProfile.name,
+      email:retrievedUserProfile.email,
+      photo:retrievedUserProfile.image,
+      userId:retrievedUserProfile.userId
+    }
    
   }
   uiConfig = {

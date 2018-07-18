@@ -2,6 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const apiRoutes = require("./routes/api-routes");
+const eventRoutes = require("./routes/event-routes");
 const path = require("path");
 //  =================================================
 
@@ -13,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use (express.static("client/build"))
 
 //Connection to mongoDB
 const mongoose = require('mongoose');
@@ -22,11 +23,12 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/one_beer_letter
     console.log("Succesfuly Connected to MongoDB")
 });
 
-app.get("/*", (req, res)=>{
-    res.sendFile(__dirname, "clent/build/index.html")
-});
+app.use("/api",apiRoutes);
+app.use("/api", eventRoutes);
 
-app.use("api/", apiRoutes)
+app.get("*", (req, res)=>{
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 
 
 

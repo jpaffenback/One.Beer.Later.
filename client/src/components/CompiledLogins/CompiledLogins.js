@@ -4,7 +4,7 @@ import Login from "../Login";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Navbar from "../Navbar";
-
+import SearchBar from "../SearchBar"
 class CompiledLogins extends Component {
   state={
     username:"",
@@ -29,12 +29,12 @@ class CompiledLogins extends Component {
 componentDidMount=()=>{
   firebase.auth().onAuthStateChanged(user=>{
     this.setState({isSignedIn:!!user});
-    localStorage.setItem("currentUser",user);
-    const value = localStorage.getItem("currentUser");
-    console.log(value)
+    // localStorage.setItem("currentUser",user);
+    // const value = localStorage.getItem("currentUser");
+    // console.log(value)
     
-      const currentUser = JSON.parse(value);
-      console.log(currentUser)
+      // const currentUser = JSON.parse(value);
+      // console.log(currentUser)
   })
 }
 
@@ -58,7 +58,8 @@ handleSinUpSubmit = event=>{
         {this.state.isSignedIn ?
           (<div>
             <Navbar/>
-          <h1>Loged In!</h1>
+          {/* <h1>Loged In!</h1> */}
+          <SearchBar/>
           </div>
       ): 
       ( <div>
