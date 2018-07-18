@@ -6,6 +6,7 @@ import firebase from 'firebase/app';
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import Navbar from "../Navbar";
 import FirebaseApi from "../config/Authantification";
+import SearchBar from "../SearchBar/searchBar";
 
 // Initialize Firebase
 firebase.initializeApp(FirebaseApi);
@@ -62,6 +63,7 @@ handleSinUpSubmit = event=>{
             logOut={()=>firebase.auth().signOut()}
             />
           <h1>Loged In!</h1>
+          <SearchBar />
           </div>
       ): 
       ( <div>
