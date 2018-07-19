@@ -1,7 +1,8 @@
 //  Node packages
 const express = require("express");
 const bodyParser = require("body-parser");
-const apiRoutes = require("./routes/api-routes")
+const apiRoutes = require("./routes/api-routes");
+const eventRoutes = require("./routes/event-routes");
 const path = require("path");
 //  =================================================
 
@@ -18,11 +19,12 @@ app.use (express.static("client/build"))
 //Connection to mongoDB
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/One_Beer_letter', ()=>{
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/one_beer_letter', ()=>{
     console.log("Succesfuly Connected to MongoDB")
 });
 
 app.use("/api",apiRoutes);
+app.use("/api", eventRoutes);
 
 app.get("*", (req, res)=>{
     res.sendFile(path.join(__dirname, "client/build/index.html"));
