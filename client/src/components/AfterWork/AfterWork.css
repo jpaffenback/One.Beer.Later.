@@ -1,0 +1,20 @@
+
+.joing-event{
+    width: 100px;
+    height: 40px;
+    border:3px solid black; 
+    background:maroon;
+    color:#fff;
+    margin-left: 10px;
+}
+.joing-event:hover{
+    opacity: 0.5;
+}
+.attenders-number{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: double 3px maroon;
+    margin: 10px auto;
+    padding-bottom: 20px;
+}

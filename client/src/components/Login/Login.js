@@ -11,13 +11,11 @@ const Login = (props) => (
 				</span>
                 <div className="wrap-input100 validate-input m-b-20" data-validate="Enter email">
                     <input className="input100" placeholder="email" name="email"  value={props.email}type="email" onChange={props.handleInputsChanges}/>
-					{/* <input  type="email" name="email" placeholder=" email" value={props.username} onChange={props.handleInputsChanges}/> */}
 				<span className="focus-input100"></span>
 				</div>
 
 				<div className="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
                 <input className="input100" placeholder="password" name="password" value={props.password} type="password" onChange={props.handleInputsChanges}/>
-					{/* <input className="input100" name="password" placeholder="password" value={props.password} type="password" onChange={props.handleInputsChanges}/> */}
 					<span className="focus-input100"></span>
 				</div>
 

@@ -4,6 +4,7 @@
   "description": "Georgia Tech Coding Bootcamp Final Project",
   "main": "index.js",
   "scripts": {
+
     "dev": "concurrently \"nodemon server.js\" \" cd ./client && yarn start\"",
     "postinstall": "cd client && npm install && npm run build",
     "start": "node server.js"
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/jpaffenback/One.Beer.Later.#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "concurrently": "^3.6.0",
     "express": "^4.16.3",

@@ -1,4 +1,7 @@
+.demo-big-content{
+    display: none;
 
+}
 .home-container{text-align: center;
     background-image: url("../Images/beer3.jpg");
     width: 100%;  
