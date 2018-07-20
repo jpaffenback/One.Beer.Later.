@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import AfterWork from "./components/AfterWork";
 import CompiledLogins from "./components/CompiledLogins";
 import SignUp from "./components/SignUp";
-import MapLayout from "./components/MapLayout";
+import BarsLayout from "./components/BarsLayout";
 class App extends Component {
   render() {
     return (
@@ -15,7 +15,6 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/mitup" component={AfterWork} />
-                <Route exact path="/map" component={MapLayout} />                
                 <Route exact path="/login" component={CompiledLogins} />                
                 <Route exact path="/signup" component={SignUp} />
               </Switch>

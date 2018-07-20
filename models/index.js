@@ -1,4 +1,5 @@
 module.exports = {
     Users: require("./Users"),
-    EventAttenders:require("./AfterWorkAttenders")
+    EventAttenders:require("./AfterWorkAttenders"),
+    BeerBars: require("./BeerBars")
   };
