@@ -15,7 +15,7 @@ export const SimpleMap = props => {
           zoom={props.mapzoom}
         >
           {props.mapdata.map((data, i) => (
-            <Marker key={i} lat={data.lat} lng={data.lng} text={"marker"} />
+            <Marker key={i} lat={data.lat} lng={data.lng} />
           ))}
         </GoogleMapReact>
       </div>
