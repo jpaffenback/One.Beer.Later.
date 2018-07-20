@@ -6,7 +6,6 @@ import firebase from "firebase";
 import initialized from "../config/Authantification";
 import {Grid, Cell} from "react-mdl";
 
-
 class AfterWork extends Component{
 
 state={
@@ -33,64 +32,67 @@ state={
     }
   };
 
-
 componentDidMount=()=>{
   // ===========================GET ATTENDER FROM DB ============
   axios.get("api/attending").then(attender=>{
-    console.log(attender.data)
     this.setState({
       count:attender.data.length,
       attenders:attender.data.reverse()
     })
-    console.log(attender.data.length)
-    console.log(this.state)
-    
   })
 
   // ==========================================
-
     const value = localStorage.getItem("currentUser");
     const retrievedUserProfile =JSON.parse(value);
-    console.log(retrievedUserProfile)
     this.setState({
         name:retrievedUserProfile.name,
         email:retrievedUserProfile.email,
         photo:retrievedUserProfile.image,
         userId:retrievedUserProfile.userId
       });
-
-      console.log(this.state)
 }
 
 attendingAfterWork =event=>{
   event.preventDefault();
+  console.log(this.state.name)
+
+  const storageName = localStorage.getItem("name")
 
   const value = localStorage.getItem("currentUser");
   const retrievedUserProfile =JSON.parse(value);
-  console.log(retrievedUserProfile)
 
   let attender ={
-    name:"Aicha Toure",
+    name:this.state.name ? this.state.name : storageName,
     image:retrievedUserProfile.image,
-    authID:"ppihgjyhfdjfhutyigodigfvsvgeirfghjk"
+    authID:retrievedUserProfile.userId
   }
-
 
 // ===========================POST ATTENDER TO DB =============
   axios.post("api/attending", attender).then(attender=>{
-    // console.log(attender.data)
+    console.log(attender.data)
+    axios.get("api/attending").then(attender=>{
+      this.setState({
+        count:attender.data.length,
+        attenders:attender.data.reverse()
+      })
+    })
+   
   });
-
-
- 
 }
 
-
-
 leaveAttenders =event=>{
-  // event.preventDefault();
+  event.preventDefault();
   // this.setState({count: this.state.count -1})
-  axios.post("api/attending",this.state.userId)
+  console.log(this.state.userId)
+  axios.delete("api/leave",{data:{authID:this.state.userId}}).then(leave=>{
+    axios.get("api/attending").then(attender=>{
+      this.setState({
+        count:attender.data.length,
+        attenders:attender.data.reverse()
+      })
+    })
+  })
+  
 }
 
   render(){
@@ -133,7 +135,7 @@ leaveAttenders =event=>{
                 </div>
               </div>
               {this.state.attenders.map(attender=>(
-              <div key={attender.id} style={{width:"75%",margin:"10px auto", background:"maroon", border:"1px solid #000", color:"#fff" }}>
+              <div key={attender._id} style={{width:"75%",margin:"10px auto", background:"maroon", border:"1px solid #000", color:"#fff" }}>
                 <h5>{attender.name}</h5>
               </div>
               ))}

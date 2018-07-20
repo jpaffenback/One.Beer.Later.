@@ -29,13 +29,19 @@ class CompiledLogins extends Component {
 componentDidMount=()=>{
   firebase.auth().onAuthStateChanged(user=>{
     this.setState({isSignedIn:!!user});
-    // localStorage.setItem("currentUser",user);
-    // const value = localStorage.getItem("currentUser");
-    // console.log(value)
-    
-      // const currentUser = JSON.parse(value);
-      // console.log(currentUser)
+
+    const storageUser={
+      name: firebase.auth().currentUser.displayName,
+      image:firebase.auth().currentUser.photoURL ? (firebase.auth().currentUser.photoURL):("https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_960_720.png"),
+      email:firebase.auth().currentUser.email,
+      userId:firebase.auth().currentUser.uid
+    }
+    localStorage.setItem("currentUser",JSON.stringify(storageUser));
+    const value = localStorage.getItem("currentUser");
+    const retrievedUserProfile =JSON.parse(value);
+ 
   })
+  
 }
 
 handleInputsChanges = event =>{
@@ -58,7 +64,6 @@ handleSinUpSubmit = event=>{
         {this.state.isSignedIn ?
           (<div>
             <Navbar/>
-          {/* <h1>Loged In!</h1> */}
           <SearchBar/>
           </div>
       ): 
