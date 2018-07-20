@@ -10,9 +10,9 @@ class Navbar extends Component {
     localStorageName: "",
     userProfilePicture: "",
     userDisplayName: "",
-    userID: ""
+    userID: "",
+    storageName:localStorage.getItem("name")
   }
-
   uiConfig = {
     signInFlow: 'popup',
     signInOptions: [
@@ -28,15 +28,13 @@ class Navbar extends Component {
   };
 
   componentDidMount = () => {
+    console.log(this.state)
 
    this.updateState();
-    const value = localStorage.getItem("currentUser");
-
-    const retrievedUserProfile = JSON.parse(value);
-
-    this.setState({
-      localStorageName:retrievedUserProfile.name
-    })
+   const value = localStorage.getItem("currentUser");
+   // console.log(value)
+   const retrievedUserProfile =JSON.parse(value);
+   console.log(retrievedUserProfile)
 
   }
   updateState = () => {
@@ -52,20 +50,19 @@ class Navbar extends Component {
     })
   }
 
-
   render() {
     return (
 
       <ul className="topnav" style={{ padding: "0px 30px" }}>
-        <li ><h1 className="active" href="#home" style={{ paddingTop: "20px" }} >One.Beer.Later</h1></li>
+        <li ><h2 className="active" href="#home" style={{ paddingTop: "30px" }} >One.Beer.Later</h2></li>
         <li className="right" onClick={() => firebase.auth().signOut()} style={{ color: "#fff", paddingTop: "20px" }}><a href="/login">Logout</a></li>
         <li className="right">
           <a href="#contact">
             <img src={this.state.userProfilePicture ? this.state.userProfilePicture : require("../Images/beer3.jpg")} alt="profiles" style={{ height: "50px", width: "50px" }} />
-            <p style={{ color: "#fff" }}>{this.state.userDisplayName ? this.state.userDisplayName : this.state.localStorageName}</p>
+            <p style={{ color: "#fff" }}>{this.state.userDisplayName ? this.state.userDisplayName : this.state.storageName}</p>
           </a>
         </li>
-        <li className="right" style={{ color: "#fff", paddingTop: "20px" }}><a href="/mitup">AfterWork</a></li>        
+        <li className="right" style={{ color: "#fff", paddingTop: "20px" }}><a href="/mitup">After Work</a></li>        
         <li className="right" style={{ color: "#fff", paddingTop: "20px" }}><a href="/map">Map</a></li>
         <li className="right" style={{ color: "#fff", paddingTop: "20px" }}><a href="/login">Home</a></li>
 
