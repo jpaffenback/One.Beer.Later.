@@ -27,7 +27,7 @@ The application we intend to build is to showcase all the CRAFT beer locations i
 
 This is a link to our GitKraken Glo Board Page: https://app.gitkraken.com/glo/board/Ww3km08ztxUAGlIw
 
-## Design Layout for One.Beer.Later.
+## Design Layout for One.Beer.Later .
 
 https://xd.adobe.com/view/28dddea4-2989-4c9b-482a-ef24dade8e3b-5eec/
 
