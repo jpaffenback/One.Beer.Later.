@@ -49,9 +49,9 @@ export default class SearchBar extends Component {
       console.log(res.data);
       
       //==================Post bar==============
-      // axios.post("api/beerbars", res.data).then(bars=>{
-        // console.log(bars)
-      // })
+      axios.post("api/beerbars", res.data).then(bars=>{
+        console.log(bars)
+      })
       
       
       this.setState({ 
