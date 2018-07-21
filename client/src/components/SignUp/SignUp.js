@@ -1,10 +1,8 @@
 
 import React, { Component } from 'react';
 import firebase from "firebase";
-// import axios from "axios";
 import CompiledLogins from "../CompiledLogins";
 import "./SignUp.css";
-// import Navbar from "../Navbar";
 
 class SignUp extends Component {
     constructor(props) {
@@ -18,7 +16,7 @@ class SignUp extends Component {
             userId:"",
             confirmPassword: ""
         }
-        // firebase ==============================================
+        //  ==================Firebase auth providers Configuration============================
         this.uiConfig = {
             signInFlow: 'popup',
             signInOptions: [
@@ -33,41 +31,20 @@ class SignUp extends Component {
             },
         };
         this.componentDidMount = () => {
-            console.log("Mounted!")
             firebase.auth().onAuthStateChanged(user => {
                 this.setState({ isSignedIn: !!user })
+                
                 const NewUser={
                     name: user.displayName,
                     image:user.photoURL ? (user.photoURL):("https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_960_720.png"),
                     email:user.email,
                     userId:user.uid
                   }
-                //   console.log(NewUser)
                   
-                  if(this.state.isSignedIn === true){
-                  localStorage.setItem("currentUser", JSON.stringify(NewUser))
-                //   const value = localStorage.getItem("currentUser");
-                //   const retrievedUserProfile =JSON.parse(value);
-                //   this.setState({
-                //     username: retrievedUserProfile.name,
-                //     email: retrievedUserProfile.email,
-                //     profileImage: retrievedUserProfile.image,
-                //     userId:retrievedUserProfile.userId
-
-                //   })
-                //   console.log(retrievedUserProfile.name);
-                //   console.log(retrievedUserProfile.email);  
-                //   console.log(retrievedUserProfile.image);      
-                //   console.log(retrievedUserProfile.userId);
-                //   console.log(this.state);
-                //   ;
-                //   }else if(firebase.auth().signOut()){
-                //     localStorage.removeItem("userProfile")
-              
-                  }
-
-
-
+                if(this.state.isSignedIn === true){
+                    console.log(NewUser)
+                localStorage.setItem("currentUser", JSON.stringify(NewUser))
+                }
             })
         }
         this.handleInputsChanges = event => {
@@ -80,21 +57,28 @@ class SignUp extends Component {
 
             const { username, password, confirmPassword, email } = this.state;
             const localUsername = username;
-            // console.log(localUsername)
+            localStorage.setItem("name",username);
             if (password !== confirmPassword) {
                 this.setState({
                     passwordErr: "Password does not match the confirm password"
                 })
-            } else {
+            } else {               
                 firebase.auth().createUserAndRetrieveDataWithEmailAndPassword(email, password)
-                    .then(function (user) {
-                        console.log(localUsername)
-                        user.user.updateProfile({
-                            displayName: localUsername,
-                            photoURL:"http://i.dailymail.co.uk/i/pix/2016/11/15/01/3A6146F900000578-3936638-image-a-71_1479173478763.jpg"
-                        })
-
-                    });
+                .then(function (user) {
+                    user.user.updateProfile({
+                        displayName: localUsername,
+                        photoURL:require("../Images/beer3.jpg")
+                    })
+                    console.log(user.user)
+                    let storageUser={
+                        displayName:user.user.displayName,
+                        photoURL:user.user.photoURL,
+                        email:user.user.email,
+                        uid:user.user.uid
+                    }
+                    
+                    localStorage.setItem("user",JSON.stringify(storageUser))
+                });
                    
             }
         }
@@ -116,7 +100,7 @@ class SignUp extends Component {
                                 <form className="login100-form validate-form">
                                     <span className="login100-form-title p-b-37">
                                         Sign Up
-                        </span>
+                                    </span>
                                     <p className="passwordErr">{this.state.passwordErr}</p>
                                     <div className="wrap-input100 validate-input m-b-25" data-validate="Enter password">
                                         <input className="input100" placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInputsChanges} />
@@ -165,4 +149,3 @@ class SignUp extends Component {
 
 export default SignUp;
 
-export let currentUser = firebase.auth().currentUser;

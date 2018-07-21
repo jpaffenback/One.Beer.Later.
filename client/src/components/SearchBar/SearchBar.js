@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import "./SearchBar.css";
+import BarsLayout from "../BarsLayout";
 import API from "../Utils/API";
-import {SimpleMap} from "../GoogleMap/GoogleMap";
+import {GoogleMap} from "../GoogleMap/GoogleMap";
 import {Grid, Cell} from "react-mdl";
+import axios from "axios";
+import Marker from "../Marker";
+
 
 export default class SearchBar extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      barsData:[],
       locationSearch: "",
       locationAddress: "",
       data: [{lat: 33.7, lng: -84.4}]
@@ -42,7 +47,17 @@ export default class SearchBar extends Component {
         );
       });
       console.log(res.data);
-      this.setState({ locationAddress });
+      
+      //==================Post bar==============
+      // axios.post("api/beerbars", res.data).then(bars=>{
+        // console.log(bars)
+      // })
+      
+      
+      this.setState({ 
+        locationAddress:locationAddress,
+        barsData:res.data
+       });
       this.handlePromises(this.state.locationAddress, API.getLatLng).then(
         geocodes => {
           console.log(geocodes);
@@ -66,41 +81,60 @@ export default class SearchBar extends Component {
     return (
       <div className="search-bar">
       <Grid style={{textAlign:"center"}}>
-        <Cell col={12}>
-        <Grid >
+
+        <Cell col={9}>
+          <Grid >
             <Cell col={6} style={{margin:"auto", display:"flex",
             justifyContent: "space-between"
-        }}>
-                <input className="search-input"
-                placeholder="Please search by city, state"
-                value={this.state.locationSearch}
-                onChange={event => this.onInputChange(event.target.value)}
-                />
-                <button
-                className="search-btn"
-                type="submit"
-                value="SUBMIT"
-                onClick={this.handleSubmit}
-                >
-                Submit
-                </button>
-                </Cell>
-                </Grid>
-            </Cell>
-            <Cell col={12}>
-            <SimpleMap 
-            locationsearch={this.state.locationSearch}
-            mapdata={this.state.data} 
-            mapcenter={[this.state.data[0].lat, 
-            this.state.data[0].lng]} mapzoom={9}
+            }}>
+            <input className="search-input"
+            placeholder="Please search by city, state"
+            value={this.state.locationSearch}
+            onChange={event => this.onInputChange(event.target.value)}
             />
+            <button
+            className="search-btn"
+            type="submit"
+            value="SUBMIT"
+            onClick={this.handleSubmit}
+            >
+            Submit
+            </button>
             </Cell>
+          </Grid>
+          <GoogleMap 
+          marker={this.state.data.barsData}
+          locationsearch={this.state.locationSearch}
+          mapdata={this.state.data} 
+          mapcenter={[this.state.data[0].lat, 
+          this.state.data[0].lng]} mapzoom={10}
+          />
+          
+          </Cell>
+
+            <Cell col={3} style={{height:"500px",overflow:"auto"}}>
+            <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
+              {this.state.barsData.map(bar=>(
+              <div key={bar.id}>
+              {/* {console.log(bar)} */}
+              <BarsLayout style={{margin:"10px auto"}}
+              barName={bar.name}
+              type={bar.status}
+              street={bar.street + " " + bar.city + ", "+ bar.state + " " + bar.country  + " " + bar.zip}
+              // status={bar.status}
+              contact={bar.phone}
+              url={`http://www.${bar.url}`}
+              
+              />
+            </div>
+            ))}
+          </Cell>
         </Grid>
       </div>
     );
   }
   onInputChange(locationSearch) {
     this.setState({ locationSearch });
-    console.log(locationSearch);
+    // console.log(locationSearch);
   }
 }

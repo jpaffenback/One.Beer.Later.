@@ -4,7 +4,6 @@ import "./Home.css";
 const Home = (props) => (
     <div className="home-container">
         <div className="home-container-heading">
-            {/* <div></div> */}
             <h3 className="masthead-brand">One.Beer.Later.</h3>
         </div>
         <div className="inter cover">

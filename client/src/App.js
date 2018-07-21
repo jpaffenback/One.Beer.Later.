@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import './App.css';
-import Home from "./components/Home";
-import AfterWork from "./components/AfterWork";
-import CompiledLogins from "./components/CompiledLogins";
-import SignUp from "./components/SignUp";
-import MapLayout from "./components/MapLayout";
+import ApptRouter from "./components/AppRouter"
+import Navbar from "./components/Navbar";
+import SideDrawer from "./components/Navbar/SideDrawer";
+import BackDrop from "./components/Navbar/BackDrop";
+
 class App extends Component {
+  state = {
+    sideDrawerOpen:false
+  }
+
+drawerTogglerHandler = ()=>{
+ this.setState((previosState)=>{
+   return {sideDrawerOpen: !previosState.sideDrawerOpen};
+ })
+
+}
+
+backDropHandler = ()=>{
+  this.setState({sideDrawerOpen:false})
+}
+
   render() {
+    // let sideDrawer;
+    let backDrop;
+    if(this.state.sideDrawerOpen){
+      // sideDrawer = <SideDrawer/>;
+      backDrop = <BackDrop click={this.backDropHandler}/>;
+    } 
     return (
       <div className="App">
-        <div>
-          <Router>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/mitup" component={AfterWork} />
-                <Route exact path="/map" component={MapLayout} />                
-                <Route exact path="/login" component={CompiledLogins} />                
-                <Route exact path="/signup" component={SignUp} />
-              </Switch>
-          </Router>
-        </div>
+          <Navbar drawerClickHandler={this.drawerTogglerHandler}/>
+          <SideDrawer show={this.state.sideDrawerOpen}/>
+          {backDrop}
+          <ApptRouter/>
+          
       </div>
     );
   }
