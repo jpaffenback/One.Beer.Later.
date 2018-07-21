@@ -6,7 +6,7 @@ import Marker from "../Marker";
 
 // user input from searchBar
 
-export const SimpleMap = props => {
+export const GoogleMap = props => {
     return (
       <div className="googleMap" >
         <GoogleMapReact

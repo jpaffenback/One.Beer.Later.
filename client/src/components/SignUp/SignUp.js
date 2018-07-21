@@ -67,7 +67,7 @@ class SignUp extends Component {
                 .then(function (user) {
                     user.user.updateProfile({
                         displayName: localUsername,
-                        photoURL:"http://i.dailymail.co.uk/i/pix/2016/11/15/01/3A6146F900000578-3936638-image-a-71_1479173478763.jpg"
+                        photoURL:require("../Images/beer3.jpg")
                     })
                     console.log(user.user)
                     let storageUser={
@@ -100,7 +100,7 @@ class SignUp extends Component {
                                 <form className="login100-form validate-form">
                                     <span className="login100-form-title p-b-37">
                                         Sign Up
-                        </span>
+                                    </span>
                                     <p className="passwordErr">{this.state.passwordErr}</p>
                                     <div className="wrap-input100 validate-input m-b-25" data-validate="Enter password">
                                         <input className="input100" placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInputsChanges} />
@@ -149,4 +149,3 @@ class SignUp extends Component {
 
 export default SignUp;
 
-// export let currentUser = firebase.auth().currentUser;

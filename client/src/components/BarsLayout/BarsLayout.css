@@ -1,12 +1,11 @@
 .card {
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: 70%;
-    /* height: 300px; */
-    border: maroon solid 3px;
+    border: orange solid 3px;
     border-radius: 5px;
     margin: 10px auto;
-    font-size: 10px !important;
 }
 
 .card:hover {
@@ -23,15 +22,17 @@ img {
 }
 .card-body span{
     color: #000;
-    /* font-size: 20px; */
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .bar-link-btn{
-    border: maroon 3px solid;
+    border: orange 3px solid;
     border-radius: 10px;
-    color: #fff !important;
+
     width: 100px;
     margin: 0 auto; 
+}
+.bar-link-btn a{
+    color: #000;
 }
 .card-btn-box{
     text-align: center;

@@ -55,6 +55,15 @@ router.post("/beerbars", (req, res)=>{
 
 });
 
+router.get("/beerbars", (req, res)=>{
+    console.log("Attendingers.....!")
+    db.BeerBars.find({}).then(atternters=>{
+        res.json(atternters)
+    })
+    .catch(function(err) {
+        console.log(err);
+    })
+});
 
 
 
