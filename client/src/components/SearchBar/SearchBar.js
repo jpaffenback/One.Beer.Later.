@@ -113,7 +113,7 @@ export default class SearchBar extends Component {
           </Cell>
 
             <Cell col={3} style={{height:"500px",overflow:"auto"}}>
-            <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
+            <h3 style={{fontFamily: 'Permanent Marker', color:"#fff"}}>ON TAP</h3>
               {this.state.barsData.map(bar=>(
               <div key={bar.id}>
               {/* {console.log(bar)} */}
