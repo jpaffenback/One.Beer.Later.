@@ -3,7 +3,7 @@
     transition: 0.3s;
     width: 70%;
     /* height: 300px; */
-    border: maroon solid 3px;
+    border: orange solid 3px;
     border-radius: 5px;
     margin: 10px auto;
     font-size: 10px !important;
@@ -27,7 +27,7 @@ img {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .bar-link-btn{
-    border: maroon 3px solid;
+    border: orange 3px solid;
     border-radius: 10px;
     color: #fff !important;
     width: 100px;

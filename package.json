@@ -4,7 +4,6 @@
   "description": "Georgia Tech Coding Bootcamp Final Project",
   "main": "index.js",
   "scripts": {
-
     "dev": "concurrently \"nodemon server.js\" \" cd ./client && yarn start\"",
     "postinstall": "cd client && npm install && npm run build",
     "start": "node server.js"

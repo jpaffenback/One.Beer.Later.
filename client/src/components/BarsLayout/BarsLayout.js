@@ -5,7 +5,8 @@ class BarsLayout extends Component{
 
   render(){
     return(
-
+      
+      
         <div className="card">
           <img src="http://draftmag.com/wp-content/uploads/2016/07/Barrel-Republic-Paul-Body-006.jpg" alt="Avatar" style={{width:"100%"}}/>
           <div className="card-body" style={{fontSize:"10px"}}>
@@ -17,6 +18,8 @@ class BarsLayout extends Component{
             </div>
           </div>
         </div>
+
+        
     )
   }
 }

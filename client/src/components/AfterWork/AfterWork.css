@@ -3,7 +3,7 @@
     width: 100px;
     height: 40px;
     border:3px solid black; 
-    background:maroon;
+    background:orange;
     color:#fff;
     margin-left: 10px;
 }
@@ -14,7 +14,7 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border: double 3px maroon;
+    border: double 3px orange;
     margin: 10px auto;
     padding-bottom: 20px;
 }

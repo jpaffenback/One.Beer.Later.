@@ -28,7 +28,7 @@ ul.topnav li a:hover:not(.active) {background-color: #111;}
 ul.topnav li h2.active {
     text-align: center;
     color: #fff;
-    background-color: maroon;
+    background-color: orange;
     height: 120px;
     margin: auto;
     padding: 10px;
