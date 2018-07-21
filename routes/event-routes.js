@@ -6,23 +6,35 @@ const maps = require("../controllers/map-controller");
 
 
 router.post("/attending", (req, res)=>{
+    console.log("Hit the POST route for /attending");
     console.log("Attending!")
     db.EventAttenders.create(req.body).then(atternters=>{
+        console.log("Your Results");
+        console.log("===========================")
+        console.log(atternters);
         res.json(atternters)
     })
     .catch(function(err) {
-        console.log(err);
+        console.log("Hit an error on the POST route");
+        console.log("===========================");
+        console.error(err);
     })
 
 });
 
 router.get("/attending", (req, res)=>{
+    console.log("Hit the GET route for /attending");
     console.log("Attendingers.....!")
     db.EventAttenders.find({}).then(atternters=>{
+        console.log("Your Results");
+        console.log("===========================");
+        console.log(atternters);
         res.json(atternters)
     })
     .catch(function(err) {
-        console.log(err);
+        console.log("Hit an error on the GET route");
+        console.log("===========================");
+        console.error(err);
     })
 });
 
