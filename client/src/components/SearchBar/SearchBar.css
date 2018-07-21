@@ -1,5 +1,5 @@
 .search-input{
-    border: 5px solid maroon;
+    border: 5px solid orange;
     text-align: center;
     padding: 0 10px;
     border-radius: 10px;
@@ -8,10 +8,10 @@
     height:40px;
 }
 .search-btn{
-    border: 5px solid black;
+    border: 5px solid #fff;
     border-radius: 10px;    
     color: #fff;
-    background: maroon;
+    background: orange;
     width: 30%;
     margin: auto;
     height:40px;

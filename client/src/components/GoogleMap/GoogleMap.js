@@ -6,7 +6,7 @@ import Marker from "../Marker";
 
 // user input from searchBar
 
-export const SimpleMap = props => {
+export const GoogleMap = props => {
     return (
       <div className="googleMap" >
         <GoogleMapReact
@@ -15,7 +15,7 @@ export const SimpleMap = props => {
           zoom={props.mapzoom}
         >
           {props.mapdata.map((data, i) => (
-            <Marker key={i} lat={data.lat} lng={data.lng} text={"marker"} />
+            <Marker key={i} lat={data.lat} lng={data.lng} text={"Bar"} />
           ))}
         </GoogleMapReact>
       </div>

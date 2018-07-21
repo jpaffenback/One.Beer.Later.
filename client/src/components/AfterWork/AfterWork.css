@@ -2,8 +2,8 @@
 .joing-event{
     width: 100px;
     height: 40px;
-    border:3px solid black; 
-    background:maroon;
+    border:3px solid orange; 
+    background:orange;
     color:#fff;
     margin-left: 10px;
 }
@@ -14,7 +14,23 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    border: double 3px maroon;
+    border: double 5px orange;
     margin: 10px auto;
     padding-bottom: 20px;
+}
+.attenders-number:hover{
+    opacity: 0.5;
+}
+.attenders{
+    width:"75%";
+    margin:10px auto; 
+    background:orange;
+    border:1px solid #000;
+    color:#fff
+}
+.attenders:hover{
+    opacity: 0.5;
+}
+span{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }

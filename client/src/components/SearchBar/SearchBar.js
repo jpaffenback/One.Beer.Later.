@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import "./SearchBar.css";
 import BarsLayout from "../BarsLayout";
 import API from "../Utils/API";
-import {SimpleMap} from "../GoogleMap/GoogleMap";
+import {GoogleMap} from "../GoogleMap/GoogleMap";
 import {Grid, Cell} from "react-mdl";
 import axios from "axios";
+import Marker from "../Marker";
 
 
 export default class SearchBar extends Component {
@@ -46,9 +47,10 @@ export default class SearchBar extends Component {
         );
       });
       console.log(res.data);
+      
       //==================Post bar==============
       // axios.post("api/beerbars", res.data).then(bars=>{
-      //   console.log(bars)
+        // console.log(bars)
       // })
       
       
@@ -100,14 +102,18 @@ export default class SearchBar extends Component {
             </button>
             </Cell>
           </Grid>
-          <SimpleMap 
+          <GoogleMap 
+          marker={this.state.data.barsData}
           locationsearch={this.state.locationSearch}
           mapdata={this.state.data} 
           mapcenter={[this.state.data[0].lat, 
-          this.state.data[0].lng]} mapzoom={9}
+          this.state.data[0].lng]} mapzoom={10}
           />
+          
           </Cell>
-            <Cell col={3}>
+
+            <Cell col={3} style={{height:"500px",overflow:"auto"}}>
+            <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
               {this.state.barsData.map(bar=>(
               <div key={bar.id}>
               {/* {console.log(bar)} */}
@@ -115,9 +121,9 @@ export default class SearchBar extends Component {
               barName={bar.name}
               type={bar.status}
               street={bar.street + " " + bar.city + ", "+ bar.state + " " + bar.country  + " " + bar.zip}
-              status={bar.status}
+              // status={bar.status}
               contact={bar.phone}
-              url={bar.url}
+              url={`http://www.${bar.url}`}
               
               />
             </div>
@@ -129,6 +135,6 @@ export default class SearchBar extends Component {
   }
   onInputChange(locationSearch) {
     this.setState({ locationSearch });
-    console.log(locationSearch);
+    // console.log(locationSearch);
   }
 }

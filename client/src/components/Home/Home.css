@@ -11,9 +11,7 @@
     background-size: cover;
     background-position: center;
     position: relative;
-    z-index: 1;
-    
-    
+    z-index: 1; 
 }
 .home-container-heading{
     background: orange;
@@ -27,8 +25,6 @@
     font-size: 38px !important;
 }
 .inter{
-    /* position: relative; */
-    margin-top: 250px;
     color: orange;
     text-align: center;
     font-style: oblique !important;

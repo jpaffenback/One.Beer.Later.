@@ -3,7 +3,6 @@ import './CompiledLogins.css';
 import Login from "../Login";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import Navbar from "../Navbar";
 import SearchBar from "../SearchBar"
 class CompiledLogins extends Component {
   state={
@@ -60,10 +59,12 @@ handleSinUpSubmit = event=>{
 
   render() {
     return (
-      <div className="App">
+      <div className="compiled-login" style={{marginTop:"80px"}}>
         {this.state.isSignedIn ?
           (<div>
-            <Navbar/>
+            {/* <Navbar/>
+            <SideDrawer/> */}
+            {/* <BackDrop/> */}
           <SearchBar/>
           </div>
       ): 
