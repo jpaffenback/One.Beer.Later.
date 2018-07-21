@@ -10,4 +10,3 @@ What is this?? The idea behind this is revamp our first project which creates an
 
 We will be using passport.js, gitkraken and their product management cards, google maps API's, Beer API, mongoDB, react and others 
 
-
