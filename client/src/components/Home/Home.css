@@ -1,17 +1,19 @@
+
 .demo-big-content{
     display: none;
-
 }
-.home-container{text-align: center;
+.home-container{
+    text-align: center;
     background-image: url("../Images/beer3.jpg");
     width: 100%;  
     min-height: 100vh;
     padding: 15px;
+    margin-top: 100px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     position: relative;
-    z-index: 1; 
+    z-index: 100;
 }
 .home-container-heading{
     background: orange;

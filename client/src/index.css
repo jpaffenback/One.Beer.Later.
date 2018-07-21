@@ -7,6 +7,10 @@ body {
   padding: 0;
   height: 100%;
   font-family: sans-serif;
-  background-image: url("./components/Images/beer3.jpg")
+  background-image: url("./components/Images/beer3.jpg");
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: 100%;
+
 }
 
