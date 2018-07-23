@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Navbar.css";
 import ToggleDrawer from "./ToggleDrawer";
-import SideDrawer from "../Navbar/SideDrawer";
 import firebase from "firebase";
 import initialized from "../config/Authantification";
 
@@ -30,18 +29,10 @@ class Navbar extends Component {
   };
 
   componentDidMount = () => {
-    console.log(this.state)
-
    this.updateState();
-   const value = localStorage.getItem("currentUser");
-   // console.log(value)
-   const retrievedUserProfile =JSON.parse(value);
-   console.log(retrievedUserProfile)
-
   }
   updateState = () => {
     firebase.auth().onAuthStateChanged(user => {
-      // console.log(user)
       this.setState({
         isSignedIn: !!user,
         userProfilePicture: user.photoURL,
@@ -56,7 +47,6 @@ class Navbar extends Component {
     return (
       <header className="toolBar">
         <nav className="toolBar-navigation">
-         
           <div className="toolBar-logo"><a href="/">One.Beer.Later.</a></div>
           <div className="spacer"></div>
           <div className="toolBar-links">
@@ -64,12 +54,11 @@ class Navbar extends Component {
               <li><a href="/login">Home</a></li>
               <li><a href="/afterwork">After Work</a></li>
               <li style={{marginTop:"5px",paddingBottom:"-20px",textAlign:"center"}}>
-                <img src={this.state.userProfilePicture ? this.state.userProfilePicture : require("../Images/beer3.jpg")} alt="profiles" style={{ height: "50px", width: "50px" }} />
-                <p style={{ color: "#fff", marginBottom:"0px" }}>{this.state.userDisplayName ? this.state.userDisplayName : this.state.storageName}</p>
+                <img src={this.state.userProfilePicture ? this.state.userProfilePicture : require("../Images/profile-default.jpg")} alt="profiles" style={{ height: "50px", width: "50px" }} />
+                <p style={{ color: "#fff", marginBottom:"0px" }}>{this.state.userDisplayName ? this.state.userDisplayName : localStorage.getItem("name")}</p>
              </li>              
               <li><a href="/"><div onClick={() =>{ firebase.auth().signOut(),
-              this.setState({userDisplayName:"",
-              userProfilePicture:""})}} >
+              localStorage.removeItem("name")}} >
               Log Out</div></a></li>
             </ul>
           </div> 

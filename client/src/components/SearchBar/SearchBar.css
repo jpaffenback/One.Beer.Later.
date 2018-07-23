@@ -1,3 +1,8 @@
+.search-bar{
+    position: relative; 
+    top: 120px; 
+}
+
 .search-input{
     border: 5px solid orange;
     text-align: center;

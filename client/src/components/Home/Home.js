@@ -2,14 +2,14 @@ import React from "react";
 import "./Home.css";
 
 const Home = (props) => (
-    <div className="home-container">
-        <div className="home-container-heading">
-            <h3 className="masthead-brand">One.Beer.Later.</h3>
+    <div className="home">
+        <div className="homeHeading">
+            <h2 className="mastheaBbrand">One.Beer.Later.</h2>
         </div>
-        <div className="inter cover">
-            <h1 className="cover-heading">Have Fun, Drink Responsibly</h1>
+        <div className="centerDiv">
+            <h1 className="coverHeading">Have Fun, Drink Responsibly</h1>
             <br/>
-            <div className="lead">
+            <div className="leadBtn">
                 <a href="/login" className="btn btn-lg btn-default">ENTER</a>
             </div>
         </div>

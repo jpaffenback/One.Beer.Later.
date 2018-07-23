@@ -11,7 +11,6 @@ class SignUp extends Component {
             isSignedIn: false,
             username: "",
             email: "",
-            profileImage: "https://cdn.pixabay.com/photo/2014/04/02/10/25/man-303792_960_720.png",
             password: "",
             userId:"",
             confirmPassword: ""
@@ -42,7 +41,6 @@ class SignUp extends Component {
                   }
                   
                 if(this.state.isSignedIn === true){
-                    console.log(NewUser)
                 localStorage.setItem("currentUser", JSON.stringify(NewUser))
                 }
             })
@@ -54,10 +52,10 @@ class SignUp extends Component {
         this.handleSignUpSubmit = event => {
             event.preventDefault();
 
-
             const { username, password, confirmPassword, email } = this.state;
             const localUsername = username;
             localStorage.setItem("name",username);
+
             if (password !== confirmPassword) {
                 this.setState({
                     passwordErr: "Password does not match the confirm password"
@@ -67,17 +65,8 @@ class SignUp extends Component {
                 .then(function (user) {
                     user.user.updateProfile({
                         displayName: localUsername,
-                        photoURL:require("../Images/beer3.jpg")
+                        photoURL:require("../Images/profile-default.jpg")
                     })
-                    console.log(user.user)
-                    let storageUser={
-                        displayName:user.user.displayName,
-                        photoURL:user.user.photoURL,
-                        email:user.user.email,
-                        uid:user.user.uid
-                    }
-                    
-                    localStorage.setItem("user",JSON.stringify(storageUser))
                 });
                    
             }
@@ -114,7 +103,7 @@ class SignUp extends Component {
 
                                     {/* ========================== */}
                                     <div className="wrap-input100 validate-input m-b-20" data-validate="Password">
-                                        <input className="input100" placeholder="password" name="password" type="current password" value={this.state.password} onChange={this.handleInputsChanges} />
+                                        <input className="input100" placeholder="password" name="password" type="password" value={this.state.password} onChange={this.handleInputsChanges} />
                                         <span className="focus-input100"></span>
                                     </div>
 

@@ -2,14 +2,20 @@ import React, { Component } from 'react';
 import './CompiledLogins.css';
 import Login from "../Login";
 import firebase from "firebase";
+import Navbar from "../Navbar";
+import SideDrawer from "../Navbar/SideDrawer";
+import BackDrop from "../Navbar/BackDrop";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import SearchBar from "../SearchBar"
+import SearchBar from "../SearchBar";
+
 class CompiledLogins extends Component {
   state={
     username:"",
     email:"",
     password:"",
-    isSignedIn:false
+    LoginErrorMassage:"",
+    isSignedIn:false,
+    sideDrawerOpen:false
   }
   uiConfig = {
     signInFlow: 'popup',
@@ -24,7 +30,16 @@ class CompiledLogins extends Component {
       signInSuccessWithAuthResult: () => false,
     }
   };
-
+  drawerTogglerHandler = ()=>{
+    this.setState((previosState)=>{
+      return {sideDrawerOpen: !previosState.sideDrawerOpen};
+    })
+   
+   }
+   
+  backDropHandler = ()=>{
+    this.setState({sideDrawerOpen:false})
+  }
 componentDidMount=()=>{
   firebase.auth().onAuthStateChanged(user=>{
     this.setState({isSignedIn:!!user});
@@ -36,8 +51,6 @@ componentDidMount=()=>{
       userId:firebase.auth().currentUser.uid
     }
     localStorage.setItem("currentUser",JSON.stringify(storageUser));
-    const value = localStorage.getItem("currentUser");
-    const retrievedUserProfile =JSON.parse(value);
  
   })
   
@@ -46,30 +59,41 @@ componentDidMount=()=>{
 handleInputsChanges = event =>{
   const {target:{name, value}}= event;
   this.setState({[name]:value});
-  console.log(event.target.value)
 }
 handleSinUpSubmit = event=>{
   event.preventDefault();
   firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password)
-  .then((user)=>{
- 
-  console.log(firebase.auth().currentUser)
-});
+  .catch(function(error) {
+    // Handle Errors here.
+    let errorCode = error.code;
+    console.log(errorCode)
+    let errorMessage = error.message;
+    console.log(errorMessage)   
+    // this.setState({
+    //   LoginErrorMassage:errorMessage
+    // })
+    // ...
+  });
 }
 
   render() {
+    let backDrop;
+    if(this.state.sideDrawerOpen){
+      backDrop = <BackDrop click={this.backDropHandler}/>;
+    } 
     return (
-      <div className="compiled-login" style={{marginTop:"80px"}}>
+      <div className="compiled-login">
         {this.state.isSignedIn ?
           (<div>
-            {/* <Navbar/>
-            <SideDrawer/> */}
-            {/* <BackDrop/> */}
+          <Navbar drawerClickHandler={this.drawerTogglerHandler}/>
+          <SideDrawer show={this.state.sideDrawerOpen}/>
+          {backDrop}
           <SearchBar/>
           </div>
       ): 
       ( <div>
           <Login
+            err={this.state.LoginErrorMassage}
             email ={this.state.email}
             password ={this.state.password}
             handleInputsChanges = {this.handleInputsChanges}

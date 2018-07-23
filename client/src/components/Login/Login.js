@@ -9,6 +9,7 @@ const Login = (props) => (
 				<span className="login100-form-title p-b-37">
 					Sign In
 				</span>
+				<p style={{color:"red"}}>{props.err}</p>
                 <div className="wrap-input100 validate-input m-b-20" data-validate="Enter email">
                     <input className="input100" placeholder="email" name="email"  value={props.email}type="email" onChange={props.handleInputsChanges}/>
 				<span className="focus-input100"></span>
