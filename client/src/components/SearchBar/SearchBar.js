@@ -105,19 +105,21 @@ export default class SearchBar extends Component {
             />
             </Cell>
 
-            <Cell col={4} style={{height:"500px",overflow:"auto"}}>
-            <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
-              {this.state.barsData.map(bar=>(
-              <div key={bar.id}>
-                <BarsLayout style={{margin:"10px auto"}}
-                barName={bar.name}
-                type={bar.status}
-                street={bar.street + " " + bar.city + ", "+ bar.state + " " + bar.country  + " " + bar.zip}
-                contact={bar.phone}
-                url={`http://www.${bar.url}`} 
-                />
+            <Cell col={4} style={{height:"500px"}}>
+              <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
+              <div style={{height:"100%", overflow:"auto"}}>
+                {this.state.barsData.map(bar=>(
+                <div key={bar.id}>
+                  <BarsLayout style={{margin:"10px auto"}}
+                  barName={bar.name}
+                  type={bar.status}
+                  street={bar.street + " " + bar.city + ", "+ bar.state + " " + bar.country  + " " + bar.zip}
+                  contact={bar.phone}
+                  url={`http://www.${bar.url}`} 
+                  />
+                </div>
+              ))}
             </div>
-            ))}
           </Cell>
         </Grid>
       </div>
