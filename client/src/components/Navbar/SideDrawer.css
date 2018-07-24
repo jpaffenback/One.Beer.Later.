@@ -10,6 +10,7 @@
     z-index: 200;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    text-align: center;
 }
 
 .side-drawer.open{
@@ -19,11 +20,11 @@
 
 .side-drawer ul{
     height: 100%;
-     list-style: none;
-     display: flex;
-     margin-top: 10px;
-     flex-direction: column;
-     color: orange;
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: column;
+    color: orange;
 }
 .side-drawer li{
     margin: 0.5rem 0;

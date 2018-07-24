@@ -1,17 +1,5 @@
 
-  * {
-	margin: 0px; 
-	padding: 0px; 
-	box-sizing: border-box;
-}
 
-body, html {
-	
-	height: 100%;
-	font-family: SourceSansPro-Regular, sans-serif;
-}
-
-/*---------------------------------------------*/
 a {
 	font-family: SourceSansPro-Regular;
 	font-size: 14px;

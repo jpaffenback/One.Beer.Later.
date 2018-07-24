@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import "./AfterWork.css";
+import Navbar from "../Navbar";
+import SideDrawer from "../Navbar/SideDrawer";
+import BackDrop from "../Navbar/BackDrop";
 import firebase from "firebase";
 import initialized from "../config/Authantification";
 import {Grid, Cell} from "react-mdl";
@@ -14,7 +17,8 @@ state={
       userId:"",
       attenders:[],
       eventBar:{},
-      count:0
+      count:0,
+      sideDrawerOpen:false
    
   }
 
@@ -35,12 +39,10 @@ state={
 componentDidMount=()=>{
   // ==================Event Bar bar==============
       axios.get("api/beerbars").then(bars=>{
-        console.log(bars.data[0])
         this.setState({
           eventBar:bars.data[1]
         })
       })
-      console.log(this.state)
       
   // ===========================GET ATTENDER FROM DB ============
   axios.get("api/attending").then(attender=>{
@@ -60,11 +62,20 @@ componentDidMount=()=>{
         userId:retrievedUserProfile.userId
       });
 }
+drawerTogglerHandler = ()=>{
+  this.setState((previosState)=>{
+    return {sideDrawerOpen: !previosState.sideDrawerOpen};
+  })
+ 
+ }
+ 
+backDropHandler = ()=>{
+  this.setState({sideDrawerOpen:false})
+}
 
 attendingAfterWork =event=>{
   event.preventDefault();
-  console.log(this.state.name)
-
+  
   const storageName = localStorage.getItem("name")
   const value = localStorage.getItem("currentUser");
   const retrievedUserProfile =JSON.parse(value);
@@ -77,7 +88,6 @@ attendingAfterWork =event=>{
 
 // ===========================POST ATTENDER TO DB =============
   axios.post("api/attending", attender).then(attender=>{
-    console.log(attender.data)
     axios.get("api/attending").then(attender=>{
       this.setState({
         count:attender.data.length,
@@ -102,13 +112,20 @@ leaveAttenders =event=>{
 }
 
   render(){
+    let backDrop;
+    if(this.state.sideDrawerOpen){
+      backDrop = <BackDrop click={this.backDropHandler}/>;
+    } 
     return(
 
         <div>
+          <Navbar drawerClickHandler={this.drawerTogglerHandler}/>
+          <SideDrawer show={this.state.sideDrawerOpen}/>
+          {backDrop}
           <div className="after-work" style={{textAlign:"center"}}>
           <Grid>
             <Cell col={12} >
-                <h2 style={{color:"#fff", fontFamily:"cursive"}}>DE-STRESS YOURSELF</h2>
+                <h2 style={{color:"#fff", fontFamily:"cursive"}}>NO STRESS</h2>
                 <h3 style={{color:"#fff",fontFamily:"impact"}}><span>Date:</span>  Friday, 07 - 27 - 2018</h3>
                 <h3 style={{color:"#fff",fontFamily:"impact"}}><span>Time:</span>  4pm - 10pm</h3>  
             </Cell>
@@ -119,7 +136,7 @@ leaveAttenders =event=>{
                 <h4 style={{fontFamily:"impact"}}>{this.state.eventBar.name}</h4>
                 
                 <hr style={{height: "5px"}}/>
-                <img src="https://igx.4sqi.net/img/general/600x600/462633803_lQNbyjnl1mFNQfhslv2ByRRI2ayua5BhseIfYirrLwA.jpg" style={{height:"150px", width:"75%"}}/>
+                <img src="http://www.5seasonsbrewing.com/5/images/stories/FacadeNight.jpg" alt="Bar view" style={{height:"150px", width:"75%"}}/>
                 <div style={{textAlign:"left", margin:"0 20px", lineHeight:"1px"}}>
                   <h6><span>Business Type:</span>  {this.state.eventBar.status}</h6>                
                   <h6> <span>Address:

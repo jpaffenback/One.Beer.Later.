@@ -15,7 +15,9 @@ const SideDrawer = props =>{
         <ul>
             <li><a href="/login">Home</a></li>
             <li><a href="/afterwork">After Work</a></li>
-            <li><div onClick={() => firebase.auth().signOut()}>Log Out</div></li>                     
+            <li><a href="/"><div onClick={() =>{ firebase.auth().signOut(),
+              localStorage.removeItem("name")}} >
+              Log Out</div></a></li>                     
         </ul>
     </nav>
     );
