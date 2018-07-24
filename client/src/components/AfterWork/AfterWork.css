@@ -3,6 +3,13 @@
     top: 70px;
 }
 .joing-event{
+    width: 110px;
+    height: 40px;
+    border:3px solid orange; 
+    background:orange;
+    color:#fff;
+}
+.leave-event{
     width: 100px;
     height: 40px;
     border:3px solid orange; 
@@ -11,6 +18,9 @@
     margin-left: 10px;
 }
 .joing-event:hover{
+    opacity: 0.5;
+}
+.leave-event:hover{
     opacity: 0.5;
 }
 .attenders-number{

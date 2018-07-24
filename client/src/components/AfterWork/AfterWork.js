@@ -161,9 +161,9 @@ leaveAttenders =event=>{
             
               <div>
                 <hr style={{border:"3px solid orange"}}/> 
-                <h3 style={{color:"#fff"}}>PEOPLE YOU WILL MEET</h3>
+                <h4 style={{color:"#fff"}}>PEOPLE YOU WILL MEET</h4>
                 <button className="joing-event" onClick={this.attendingAfterWork }>Attend Event</button>
-                <button className="joing-event" onClick={this.leaveAttenders}>Leave Event</button>
+                <button className="leave-event" onClick={this.leaveAttenders}>Leave Event</button>
                 <div className="attenders-number">
                   <h2 style={{color:"orange"}}>{this.state.count}</h2>
                 </div>

@@ -7,7 +7,7 @@
     background: orange;
     border: 3px #fff solid;
     color: #fff;
-    width: 75%;
+    width: 50%;
     font-size: 36px;
     margin: auto;
     position: relative;
@@ -68,6 +68,15 @@
     .home h2{
         font-size: 30px;
     }
-    
-  } 
+} 
 
+@media (max-width:425px) {
+    .leadBtn{
+        margin-top: -80px;
+    }
+}
+@media (max-width:375px){
+    .leadBtn{
+        margin-top: -50px;
+    }
+}
