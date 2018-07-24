@@ -107,8 +107,7 @@ leaveAttenders =event=>{
         attenders:attender.data.reverse()
       })
     })
-  })
-  
+  }) 
 }
 
   render(){
@@ -143,8 +142,8 @@ leaveAttenders =event=>{
                     </span> {this.state.eventBar.street +" "+this.state.eventBar.city + ", " + this.state.eventBar.state + " " + this.state.eventBar.zip}
                   </h6>
                   <h6><span>Contact:</span> {this.state.eventBar.phone}</h6>
-                  <h6><a href={`http://www.${this.state.eventBar.url}`}> Visit Website</a></h6>
-                  <h6><a href={this.state.eventBar.reviewlink}> Map</a></h6>
+                  <h6><a href={`http://www.${this.state.eventBar.url}`} target="_blank"> Visit Website</a></h6>
+                  <h6><a href={this.state.eventBar.reviewlink} target="_blank"> Map</a></h6>
                   
                 </div>          
                 </Cell>
