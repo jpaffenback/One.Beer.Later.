@@ -90,7 +90,7 @@ class SignUp extends Component {
                                     <span className="login100-form-title p-b-37">
                                         Sign Up
                                     </span>
-                                    <p className="passwordErr">{this.state.passwordErr}</p>
+                                    <p className="passwordErr" style={{textAlign:"center"}}>{this.state.passwordErr}</p>
                                     <div className="wrap-input100 validate-input m-b-25" data-validate="Enter password">
                                         <input className="input100" placeholder="username" name="username" type="text" value={this.state.username} onChange={this.handleInputsChanges} />
                                         <span className="focus-input100"></span>
