@@ -45,9 +45,9 @@ export default class SearchBar extends Component {
       });
       // console.log(res.data);
       
-      //==================Post bar==============
+      // ==================Post bar==============
       // axios.post("api/beerbars", res.data).then(bars=>{
-        // console.log(bars)
+      //   console.log(bars)
       // })
       this.setState({ 
         locationAddress:locationAddress,
@@ -105,7 +105,7 @@ export default class SearchBar extends Component {
             />
             </Cell>
             <Cell col={4} style={{height:"500px"}}>
-              <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
+              <h3 style={{fontFamily:"Permanent Marker", color:"#fff"}}>On Tap</h3>
               <div style={{height:"100%", overflow:"auto"}}>
                 {this.state.barsData.map(bar=>(
                 <div key={bar.id}>
