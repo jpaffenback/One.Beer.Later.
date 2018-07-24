@@ -125,7 +125,7 @@ leaveAttenders =event=>{
           <div className="after-work" style={{textAlign:"center"}}>
           <Grid>
             <Cell col={12} >
-                <h2 style={{color:"#fff", fontFamily:"cursive"}}>DE-STRESS YOURSELF</h2>
+                <h2 style={{color:"#fff", fontFamily:"cursive"}}>NO STRESS</h2>
                 <h3 style={{color:"#fff",fontFamily:"impact"}}><span>Date:</span>  Friday, 07 - 27 - 2018</h3>
                 <h3 style={{color:"#fff",fontFamily:"impact"}}><span>Time:</span>  4pm - 10pm</h3>  
             </Cell>

@@ -1,4 +1,7 @@
-
+.after-work{
+    position: relative;
+    top: 70px;
+}
 .joing-event{
     width: 100px;
     height: 40px;
