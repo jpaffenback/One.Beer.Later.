@@ -104,7 +104,6 @@ export default class SearchBar extends Component {
             this.state.data[0].lng]} mapzoom={10}
             />
             </Cell>
-
             <Cell col={4} style={{height:"500px"}}>
               <h3 style={{textDecoration: "underline", color:"#fff"}}>Localized Bars</h3>
               <div style={{height:"100%", overflow:"auto"}}>

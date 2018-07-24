@@ -47,7 +47,7 @@ class Navbar extends Component {
     return (
       <header className="toolBar">
         <nav className="toolBar-navigation">
-          <div className="toolBar-logo"><a href="/">One.Beer.Later.</a></div>
+          <div className="toolBar-logo"><a href="/login">One.Beer.Later.</a></div>
           <div className="spacer"></div>
           <div className="toolBar-links">
             <ul>
