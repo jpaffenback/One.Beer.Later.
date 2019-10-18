@@ -21,6 +21,7 @@
     border: 3px #fff solid;
     width: 300px;
     margin: auto;
+    opacity: 100%;
     text-align: center;    
 }
 .home-container-heading h3{
